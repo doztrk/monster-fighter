@@ -28,7 +28,6 @@ public class Game {
 
 
         } while (shouldContinue());
-
     }
 
     private void resetHealths() {
@@ -67,12 +66,7 @@ public class Game {
 
 
         }
-        System.out.print(RED + "Game ended" + RESET + GREEN + "\nWINNER: " + RESET);
-
-        System.out.println(player.isAlive() ?
-                GREEN + player.getName() + RESET :
-                GREEN + monster.getType() + " wins!!!"+RESET );
-
+       printOutcome();
     }
 
     private void buildMonster() {
@@ -96,6 +90,17 @@ public class Game {
         String answer = InputHandle.getStringInput("Do you want to continue ? Y/N");
         return answer.trim().toLowerCase().equals("y");
     }
+
+    private void printOutcome(){
+        System.out.print(RED + "Game ended" + RESET + GREEN + "\nWINNER: " + RESET);
+
+        System.out.println(player.isAlive() ?
+                GREEN + player.getName() + RESET :
+                GREEN + monster.getType() + " wins!!!"+RESET );
+
+    }
+
+}
 
 
 }
