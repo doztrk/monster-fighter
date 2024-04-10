@@ -50,14 +50,17 @@ public class Game {
             if (!monster.isAlive()) {
                 break;
             }
-            int monsterDamage = monster.getAttackPoint(new NormalAttack());
-            System.out.println(monster.getType() + " attacks for " + monsterDamage);
+
 
             if (round == 3) {
                 int monsterCriticalDamage = monster.getAttackPoint(new CriticalAttack());
+                System.out.println(monster.getType() + " super attacks for: "+ monsterCriticalDamage);
                 player.decreaseHealth(monsterCriticalDamage);
+            }else {
+                int monsterDamage = monster.getAttackPoint(new NormalAttack());
+                System.out.println(monster.getType() + " attacks for " + monsterDamage);
+                player.decreaseHealth(monsterDamage);
             }
-            player.decreaseHealth(monsterDamage);
             System.out.println(player.getName() + " health: " + player.getHealth());
 
             round++;
